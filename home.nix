@@ -15,7 +15,7 @@
     jq
   ];
 
-  home.activation.cloneDotiles =
+  home.activation.cloneDotfiles =
     lib.hm.dag.entryAfter ["writeBoundary" ] ''
       if [ ! -d "$HOME/dotfiles/.git" ]; then 
         ${pkgs.git}/bin/git clone https://github.com/nickzou/dotfiles.git "$HOME/dotfiles"
@@ -23,7 +23,7 @@
     '';
 
   home.activation.stowDotiles =
-    lib.hm.dag.entryAfter ["cloneDotiles" ] ''
+    lib.hm.dag.entryAfter ["cloneDotfiles" ] ''
       cd "$HOME/dotfiles" && ${pkgs.stow}/bin/stow ghostty hypr lazygit lsd nvim starship tmux yazi zsh
     '';
 
