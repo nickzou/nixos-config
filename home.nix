@@ -18,6 +18,7 @@
   home.activation.cloneDotfiles =
     lib.hm.dag.entryAfter ["writeBoundary" ] ''
       if [ ! -d "$HOME/dotfiles/.git" ]; then 
+        rm -rf "$HOME/dotfiles"
         ${pkgs.git}/bin/git clone https://github.com/nickzou/dotfiles.git "$HOME/dotfiles"
       fi
     '';
@@ -29,7 +30,8 @@
 
   home.activation.installTpm =
     lib.hm.dag.entryAfter ["writeBoundary" ] ''
-      if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then 
+      if [ ! -f "$HOME/.tmux/plugins/tpm/tpm" ]; then
+        rm -rf "$HOME/.tmux/plugins/tpm"
         ${pkgs.git}/bin/git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
       fi
     '';
