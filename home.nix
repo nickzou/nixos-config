@@ -26,6 +26,13 @@
     lib.hm.dag.entryAfter ["cloneDotiles" ] ''
       cd "$HOME/dotfiles" && ${pkgs.stow}/bin/stow ghostty hypr lazygit lsd nvim starship tmux yazi zsh
     '';
+
+  home.activation.installTpm =
+    lib.hm.dag.entryAfter ["writeBoundary" ] ''
+      if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then 
+        ${pkgs.git}/bin/git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+      fi
+    '';
   # --- NixOS-native user settings (NOT files — stow can't manage these) ---
   # This is the stuff that legitimately belongs in home-manager even in a
   # stow setup, because it's dconf/gsettings state, not dotfiles.
