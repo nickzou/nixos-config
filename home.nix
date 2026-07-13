@@ -15,6 +15,7 @@
     jq
     claude-code
     inputs.zen-browser.packages.${pkgs.system}.default
+    discord
   ];
 
   home.activation.cloneDotfiles =
