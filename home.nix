@@ -13,6 +13,8 @@
     fd
     bat
     jq
+    claude-code
+    inputs.zen-browser.packages.${pkgs.system}.default
   ];
 
   home.activation.cloneDotfiles =
@@ -23,17 +25,18 @@
       fi
     '';
 
-  home.activation.stowDotiles =
+  home.activation.stowDotfiles =
     lib.hm.dag.entryAfter ["cloneDotfiles" ] ''
       cd "$HOME/dotfiles" && ${pkgs.stow}/bin/stow ghostty hypr lazygit lsd nvim starship tmux yazi zsh
     '';
 
-  home.activation.installTpm =
-    lib.hm.dag.entryAfter ["writeBoundary" ] ''
-      if [ ! -f "$HOME/.tmux/plugins/tpm/tpm" ]; then
-        rm -rf "$HOME/.tmux/plugins/tpm"
-        ${pkgs.git}/bin/git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
-      fi
+  # Install tpm + the plugins declared in tmux.conf via the repo's bootstrap
+  # script (the same one used by hand on macOS/Ubuntu). Runs after stow so
+  # ~/.config/tmux/tmux.conf is in place first.
+  home.activation.installTmuxPlugins =
+    lib.hm.dag.entryAfter ["stowDotfiles" ] ''
+      export PATH="${pkgs.git}/bin:${pkgs.tmux}/bin:$PATH"
+      ${pkgs.bash}/bin/bash "$HOME/dotfiles/tmux/bootstrap.sh" || true
     '';
   # --- NixOS-native user settings (NOT files — stow can't manage these) ---
   # This is the stuff that legitimately belongs in home-manager even in a
