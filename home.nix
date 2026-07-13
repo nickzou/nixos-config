@@ -27,7 +27,7 @@
 
   home.activation.stowDotfiles =
     lib.hm.dag.entryAfter ["cloneDotfiles" ] ''
-      cd "$HOME/dotfiles" && ${pkgs.stow}/bin/stow ghostty hypr lazygit lsd nvim starship tmux yazi zsh
+      cd "$HOME/dotfiles" && ${pkgs.stow}/bin/stow ghostty fastfetch hypr lazygit lsd nvim starship tmux waybar wofi yazi zsh
     '';
 
   # Install tpm + the plugins declared in tmux.conf via the repo's bootstrap

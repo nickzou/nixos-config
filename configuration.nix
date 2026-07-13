@@ -69,8 +69,9 @@
   };
 
   # Install programs.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
   programs.hyprland.enable = true;
+  programs.waybar.enable = true;
   programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -91,6 +92,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    fastfetch
     fzf
     ghostty
     lazygit
@@ -105,6 +107,7 @@
     tmux
     vim
     wget
+    wofi
     yazi
     zoxide
   ];
