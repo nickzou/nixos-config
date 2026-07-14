@@ -14,6 +14,7 @@
     bat
     jq
     claude-code
+    hyprpaper
     inputs.zen-browser.packages.${pkgs.system}.default
     discord
   ];
