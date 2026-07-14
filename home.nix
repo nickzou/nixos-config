@@ -14,9 +14,11 @@
     bat
     jq
     claude-code
+    discord
     hyprpaper
     inputs.zen-browser.packages.${pkgs.system}.default
-    discord
+    keepassxc
+    rclone
   ];
 
   home.activation.cloneDotfiles =
