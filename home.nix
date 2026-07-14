@@ -42,6 +42,11 @@
       export PATH="${pkgs.git}/bin:${pkgs.tmux}/bin:$PATH"
       ${pkgs.bash}/bin/bash "$HOME/dotfiles/tmux/bootstrap.sh" || true
     '';
+
+  home.activation.createKeepassDir =
+    lib.hm.dag.entryAfter ["writeBoundary"] ''
+      mkdir -p "$HOME/keepass"
+    '';
   # --- NixOS-native user settings (NOT files — stow can't manage these) ---
   # This is the stuff that legitimately belongs in home-manager even in a
   # stow setup, because it's dconf/gsettings state, not dotfiles.
