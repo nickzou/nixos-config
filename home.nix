@@ -22,6 +22,8 @@
     keepassxc
     rclone
     waybar
+    signal-desktop
+    zapzap
     # rust related
     rustc
     cargo
