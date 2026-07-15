@@ -1,5 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 {
+  imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
+
   home.username = "nickz";
   home.homeDirectory = "/home/nickz";
 
@@ -19,6 +21,7 @@
     inputs.zen-browser.packages.${pkgs.system}.default
     keepassxc
     rclone
+    waybar
   ];
 
   home.activation.cloneDotfiles =
@@ -50,9 +53,25 @@
   # --- NixOS-native user settings (NOT files — stow can't manage these) ---
   # This is the stuff that legitimately belongs in home-manager even in a
   # stow setup, because it's dconf/gsettings state, not dotfiles.
+  # Kept for GTK 4 / libadwaita apps — this gsettings key is a cross-desktop
+  # standard that GTK apps read directly, even under Plasma.
   dconf.settings = {
     "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-    "org/gnome/desktop/peripherals/touchpad".natural-scroll = true;
+  };
+
+  # --- Plasma (KDE) declarative config via plasma-manager ---
+  programs.plasma = {
+    enable = true;
+    input.touchpads = [
+      {
+        # Synaptics I2C touchpad, from /proc/bus/input/devices.
+        name = "SYNA30B3:00 06CB:CE08";
+        vendorId = "06cb";
+        productId = "ce08";
+        naturalScroll = false;
+        scrollSpeed = 0.6;
+      }
+    ];
   };
 
   # Let home-manager manage itself.
