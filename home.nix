@@ -22,6 +22,12 @@
     keepassxc
     rclone
     waybar
+    # rust related
+    rustc
+    cargo
+    rustfmt
+    clippy
+    rust-analyzer
   ];
 
   home.activation.cloneDotfiles =
