@@ -39,7 +39,6 @@
 
   services.desktopManager.plasma6.enable = true;
 
-  # GNOME (seahorse) and Plasma (ksshaskpass) both define this; force one
   # while both desktops coexist. Remove once GNOME is dropped.
   programs.ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
 
