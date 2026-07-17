@@ -17,11 +17,13 @@
     jq
     claude-code
     discord
+    hyprnotify
     hyprpaper
     inputs.zen-browser.packages.${pkgs.system}.default
     keepassxc
     rclone
     waybar
+    wofi
     signal-desktop
     zapzap
     # rust related

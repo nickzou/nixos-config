@@ -114,7 +114,6 @@
     tmux
     vim
     wget
-    wofi
     yazi
     zoxide
   ];
