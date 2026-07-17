@@ -108,6 +108,7 @@
     git
     go
     nodejs
+    qalculate-qt
     starship
     stow
     tmux
