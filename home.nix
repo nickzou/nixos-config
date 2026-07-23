@@ -17,6 +17,7 @@
     jq
     claude-code
     discord
+    herdr
     hyprnotify
     hyprpaper
     inputs.zen-browser.packages.${pkgs.system}.default

@@ -98,15 +98,16 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     btop
+    eza
     fastfetch
     fzf
     ghostty
     lazygit
-    lsd
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     gcc
     git
     go
+    networkmanagerapplet
     nodejs
     qalculate-qt
     starship
