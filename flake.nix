@@ -2,19 +2,23 @@
     description = "Nick's NixOS";
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-	home-manager = {
-            url = "github:nix-community/home-manager/release-26.05";
-	    inputs.nixpkgs.follows = "nixpkgs";
-	};
-	zen-browser = {
-	    url = "github:0xc000022070/zen-browser-flake";
-	    inputs.nixpkgs.follows = "nixpkgs";
-	};
-	plasma-manager = {
-	    url = "github:nix-community/plasma-manager";
-	    inputs.nixpkgs.follows = "nixpkgs";
-	    inputs.home-manager.follows = "home-manager";
-	};
+        home-manager = {
+                url = "github:nix-community/home-manager/release-26.05";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+        zen-browser = {
+            url = "github:0xc000022070/zen-browser-flake";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+        plasma-manager = {
+            url = "github:nix-community/plasma-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.home-manager.follows = "home-manager";
+        };
+        herdr = {
+            url = "github:ogulcancelik/herdr/v0.7.5";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { self, nixpkgs, home-manager, ...} @ inputs: {
