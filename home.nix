@@ -71,6 +71,21 @@
     "org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
+  # Default image viewer -> Gwenview (ships with Plasma 6). Makes Dolphin and
+  # other apps open images in Gwenview without the "select a program" prompt.
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "image/png"     = "org.kde.gwenview.desktop";
+      "image/jpeg"    = "org.kde.gwenview.desktop";
+      "image/gif"     = "org.kde.gwenview.desktop";
+      "image/webp"    = "org.kde.gwenview.desktop";
+      "image/bmp"     = "org.kde.gwenview.desktop";
+      "image/tiff"    = "org.kde.gwenview.desktop";
+      "image/svg+xml" = "org.kde.gwenview.desktop";
+    };
+  };
+
   # --- Plasma (KDE) declarative config via plasma-manager ---
   programs.plasma = {
     enable = true;

@@ -78,6 +78,7 @@
   programs.hyprland.enable = true;
   programs.waybar.enable = true;
   programs.zsh.enable = true;
+  programs.wshowkeys.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."nickz" = {
@@ -103,6 +104,7 @@
     fastfetch
     fzf
     ghostty
+    hyprshot
     lazygit
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     gcc
@@ -114,6 +116,7 @@
     starship
     stow
     tmux
+    tree-sitter
     vim
     wget
     yarn
