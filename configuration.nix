@@ -99,6 +99,7 @@
   environment.systemPackages = with pkgs; [
     btop
     eza
+    delta
     fastfetch
     fzf
     ghostty
@@ -115,6 +116,7 @@
     tmux
     vim
     wget
+    yarn
     yazi
     zoxide
   ];

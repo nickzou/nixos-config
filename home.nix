@@ -16,6 +16,7 @@
     bat
     jq
     claude-code
+    clickup
     discord
     inputs.herdr.packages.${pkgs.system}.default
     hyprnotify
