@@ -18,6 +18,7 @@
     claude-code
     clickup
     discord
+    gnome-clocks
     inputs.herdr.packages.${pkgs.system}.default
     hyprnotify
     hyprpaper

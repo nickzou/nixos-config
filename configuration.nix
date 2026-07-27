@@ -115,6 +115,7 @@
     qalculate-qt
     starship
     stow
+    termdown
     tmux
     tree-sitter
     vim
