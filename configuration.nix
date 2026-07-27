@@ -73,6 +73,11 @@
     touchpad.naturalScrolling = true;
   };
 
+  # Bluetooth + GUI manager (blueman: manager window + tray applet).
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
   # Install programs.
   # programs.firefox.enable = true;
   programs.hyprland.enable = true;
