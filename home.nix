@@ -16,6 +16,7 @@
     bat
     jq
     claude-code
+    grok-cli
     clickup
     discord
     gnome-clocks
