@@ -42,6 +42,9 @@
   # while both desktops coexist. Remove once GNOME is dropped.
   programs.ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
 
+  # Docker daemon (rootful). User `nickz` is in the `docker` group below.
+  virtualisation.docker.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -89,7 +92,7 @@
   users.users."nickz" = {
     isNormalUser = true;
     description = "Nick Zou";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
     ];
