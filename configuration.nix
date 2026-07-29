@@ -118,6 +118,7 @@
     networkmanagerapplet
     nodejs
     pandoc
+    pnpm
     qalculate-qt
     starship
     stow
