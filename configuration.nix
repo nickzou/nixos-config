@@ -135,6 +135,10 @@
     zoxide
   ];
 
+  # Point the npm @biomejs/biome launcher at the system (nixpkgs) Biome, so a
+  # project-local node_modules/.bin/biome runs on NixOS (see biomejs/biome#916).
+  environment.variables.BIOME_BINARY = "${pkgs.biome}/bin/biome";
+
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
