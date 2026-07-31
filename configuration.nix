@@ -121,6 +121,7 @@
     go
     networkmanagerapplet
     nodejs
+    opentofu
     pandoc
     pnpm
     qalculate-qt
