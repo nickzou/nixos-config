@@ -129,6 +129,7 @@
     stow
     tmux
     tree-sitter
+    unzip
     vim
     wget
     yarn
